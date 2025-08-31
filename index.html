@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALQUIPC - Alquiler de Equipos de Cómputo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¡Bienvenidos a ALQUIPC!</h1>
+            <p>Especialistas en alquiler de equipos de cómputo portátiles</p>
+            <a href="#facturacion" class="btn-hero">Ir a Facturación</a>
+        </div>
+    </section>
+
+    <!-- Facturación Section -->
+    <section id="facturacion" class="facturacion">
+        <div class="contenedor">
+            <h2>Facturación ALQUIPC</h2>
+            <p>Calculadora de alquiler de equipos portátiles</p>
+            
+            <div class="cliente-info">
+                <label for="idCliente">ID Cliente:</label>
+                <div class="id-container">
+                    <input type="text" id="idCliente" readonly>
+                    <button type="button" onclick="generarIdCliente()" class="btn-generar">Generar ID</button>
+                </div>
+                <label for="email">Email del Cliente:</label>
+                <input type="email" id="email" placeholder="prueba@gmail.com">
+            </div>
+            
+            <form id="formulario">
+                <label for="equipos">Número de equipos (mínimo 2):</label>
+                <input type="number" id="equipos" min="2" required>
+                <label for="dias">Días de alquiler inicial:</label>
+                <input type="number" id="dias" min="1" required>
+                <label for="diasExtra">Días adicionales:</label>
+                <input type="number" id="diasExtra" min="0" value="0">
+                <label for="opcion">Opción de alquiler:</label>
+                <select id="opcion">
+                    <option value="ciudad">Dentro de la ciudad</option>
+                    <option value="fuera">Fuera de la ciudad (+5%)</option>
+                    <option value="local">Dentro del local (-5%)</option>
+                </select>
+                <button type="button" onclick="calcularFactura()" class="btn-calcular">Calcular Factura</button>
+                <button type="button" onclick="enviarFactura()" class="btn-enviar">Enviar Factura por Email</button>
+            </form>
+            <div id="resultado" class="resultado"></div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
